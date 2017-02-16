@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BookController {
 	@Autowired
 	private BookRepository repository;
+	@Autowired
+	private CategoryRepository cRepository;
 	
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String showBooks(Model model) {
@@ -26,6 +28,7 @@ public class BookController {
 	@RequestMapping(value = "/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
+		model.addAttribute("categories", cRepository.findAll());
 		return "addbook";
 	}
 	
