@@ -30,6 +30,7 @@ public class Book {
 	private int price;
 	
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "categoryId")
 	private Category category;
 

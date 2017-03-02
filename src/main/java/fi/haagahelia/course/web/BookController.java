@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BookController {
@@ -24,6 +25,18 @@ public class BookController {
 		model.addAttribute("books", books);
 		return "booklist";
 	}
+	
+	// RESTful service to get all students
+    @RequestMapping(value="/books", method = RequestMethod.GET)
+    public @ResponseBody List<Book> bookListRest() {	
+        return (List<Book>) repository.findAll();
+    }    
+
+	// RESTful service to get student by id
+    @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
+    public @ResponseBody Book findBookRest(@PathVariable("id") Long bookId) {	
+    	return repository.findOne(bookId);
+    } 
 	
 	@RequestMapping(value = "/add")
 	public String addBook(Model model) {
