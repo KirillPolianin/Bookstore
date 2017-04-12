@@ -25,7 +25,7 @@ public class BookController {
         return "login";
     }	
 	
-	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
+	@RequestMapping(value = {"", "/", "/booklist"}, method = RequestMethod.GET)
 	public String showBooks(Model model) {
 		List<Book> books = (List<Book>) repository.findAll();
 		model.addAttribute("books", books);
