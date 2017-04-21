@@ -20,7 +20,7 @@ public class UserRepositoryTest {
     private UserRepository repository;
 
     @Test
-    public void findByTitleShouldReturnBook() {
+    public void findByUsernameShouldReturnUser() {
         User user = repository.findByUsername("user");
         
         assertThat(user.getRole()).isEqualTo("USER");

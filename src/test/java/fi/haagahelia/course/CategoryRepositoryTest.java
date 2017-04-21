@@ -21,10 +21,10 @@ public class CategoryRepositoryTest {
     private CategoryRepository repository;
 
     @Test
-    public void findByLastnameShouldReturnStudent() {
-        List<Category> students = repository.findByName("Novel");
+    public void findByLastnameShouldReturnCategory() {
+        List<Category> categories = repository.findByName("Novel");
         
-        assertThat(students).hasSize(1);
+        assertThat(categories).hasSize(1);
     }
     
     @Test
